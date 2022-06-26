@@ -37,30 +37,29 @@ class Productos{
       }
   }
   actualizarPorId(id,producto){
-    const productoBuscado = arrayDeProductos.find(elemento => elemento.id == parseInt(id))
-    if(productoBuscado == undefined){
+    const productoBuscado = arrayDeProductos.find(elemento => elemento.id === parseInt(id))
+    if(productoBuscado === undefined){
         return {mensaje:"el id no existe..."}
     }else{
         if (producto.timestamp && producto.name && producto.descripcion && producto.code && producto.thumbnail && producto.price && producto.stock) {
-            resultado.timestamp = producto.timestamp;
-            resultado.name = producto.name;
-            resultado.descripcion = producto.descripcion;
-            resultado.code = producto.code;
-            resultado.thumbnail = producto.thumbnail;
-            resultado.price = producto.price;
-            resultado.stock = producto.stock;
+            productoBuscado.timestamp = producto.timestamp;
+            productoBuscado.name = producto.name;
+            productoBuscado.descripcion = producto.descripcion;
+            productoBuscado.code = producto.code;
+            productoBuscado.thumbnail = producto.thumbnail;
+            productoBuscado.price = producto.price;
+            productoBuscado.stock = producto.stock;
           } else {
             return {mensaje: "No ingreso todas las variables que tiene un producto..."}
           }
     }
   }
   borrarPorId(id){
-    const productoBuscado = arrayDeProductos.find(elemento => elemento.id != parseInt(id))
-    if(productoBuscado == undefined){
+    const productoBuscado = arrayDeProductos.find(elemento => elemento.id === parseInt(id))
+    if(productoBuscado === undefined){
         return {mensaje: "no existe ese id"}
     }else{
-        const productosNoEliminados = arrayDeProductos.filter(elemento => elemento.id != parseInt(id))
-        productosNoEliminados.push(arrayDeProductos)
+       arrayDeProductos = arrayDeProductos.filter(elemento => elemento.id !== parseInt(id))
     }
   }
 }
