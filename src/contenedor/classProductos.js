@@ -11,7 +11,7 @@ class Productos{
         }
     }
     obtenerPorId(id){
-        const productoBuscado = arrayDeProductos.find(elemento => elemento.id == id)
+        const productoBuscado = arrayDeProductos.find(elemento => elemento.id == parseInt(id))
         if(productoBuscado == undefined){
             return {mensaje:"No se encontro el producto"}
         } else {
@@ -19,7 +19,7 @@ class Productos{
         }
     }
    existeElId(id){
-    const productoBuscado = arrayDeProductos.find(elemento => elemento.id == id)
+    const productoBuscado = arrayDeProductos.find(elemento => elemento.id == parseInt(id))
     if(productoBuscado == undefined){
         return false
     }else{
@@ -37,7 +37,7 @@ class Productos{
       }
   }
   actualizarPorId(id,producto){
-    const productoBuscado = arrayDeProductos.find(elemento => elemento.id == id)
+    const productoBuscado = arrayDeProductos.find(elemento => elemento.id == parseInt(id))
     if(productoBuscado == undefined){
         return {mensaje:"el id no existe..."}
     }else{
@@ -55,11 +55,11 @@ class Productos{
     }
   }
   borrarPorId(id){
-    const productoBuscado = arrayDeProductos.find(elemento => elemento.id != id)
+    const productoBuscado = arrayDeProductos.find(elemento => elemento.id != parseInt(id))
     if(productoBuscado == undefined){
         return {mensaje: "no existe ese id"}
     }else{
-        const productosNoEliminados = arrayDeProductos.filter(elemento => elemento.id != id)
+        const productosNoEliminados = arrayDeProductos.filter(elemento => elemento.id != parseInt(id))
         productosNoEliminados.push(arrayDeProductos)
     }
   }
