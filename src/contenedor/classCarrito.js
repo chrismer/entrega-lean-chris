@@ -1,4 +1,4 @@
-import { Productos } from "./classProductos";
+const {Productos} = require("./classProductos")
 const controladorProductos = new Productos();
 let listaDeCarritos = []
 
@@ -28,7 +28,7 @@ class Carrito {
     }
     agregarProducto(idCarrito, producto) {
         if (controladorProductos.existeElId(producto.id)) {
-          let index = listaDeCarritos.findIndex((element) => element.id == parseInt(idCarrito));
+          let index = listaDeCarritos.findIndex((element) => element.id == idCarrito);
           if (index == -1) {
             return false;
           } else {
@@ -43,7 +43,7 @@ class Carrito {
         if (indexCarrito == -1) {
           return false;
         } else {
-          let indexProduct = listaDeCarritos[indexCarrito].productos.findIndex((producto) => producto.id == idProducto);
+          let indexProduct = listaDeCarritos[indexCarrito].productos.findIndex((producto) => producto.id === idProducto);
           if (indexProduct == -1) {
             return false;
           } else {

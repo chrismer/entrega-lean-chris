@@ -11,7 +11,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 // app.use(mdwAdmin.isAdmin);
 app.use('/api/productos', productos);
-// app.use('/api/carrito',carrito);
+app.use('/api/carrito',carrito);
 // app.use(mdwRoute.ruta_invalida);
 //--------------------------------------------
 // inicio el servidor

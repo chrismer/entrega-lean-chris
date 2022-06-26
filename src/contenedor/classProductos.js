@@ -18,14 +18,15 @@ class Productos{
             return productoBuscado
         }
     }
-   existeElId(id){
-    const productoBuscado = arrayDeProductos.find(elemento => elemento.id == parseInt(id))
-    if(productoBuscado == undefined){
-        return false
-    }else{
-        return true
+
+    existeElId(id) {
+        const resultado = arrayDeProductos.find((idBuscado) => idBuscado.id == parseInt(id));
+        if (resultado === undefined) {
+          return false;
+        } else {
+          return true;
+        }
     }
-   }
   guardarProducto(producto){
     if (producto.timestamp && producto.name && producto.descripcion && producto.code && producto.thumbnail && producto.price && producto.stock) {
         producto.id = Productos.id;
