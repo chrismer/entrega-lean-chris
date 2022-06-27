@@ -36,6 +36,18 @@ router.post("/:id/productos", (req, res) => {
             status: `Producto con id ${Producto.id} ha sido agregado al carrito con id ${idCarrito}`,
           })
       : res.status(406).json({ Error: `Carrito o Producto inexistente` });
-  });
+});
+
+router.delete("/:id/productos/:id_prod", (req, res) => {
+    let idCarrito = parseInt(req.params.id);
+    let idProducto = parseInt(req.params.id_prod);
+    controladorCarrito.sacarProductoDeUnCarrito(idCarrito, idProducto)
+      ? res
+          .status(200)
+          .json({
+            status: `Producto con id ${idProducto} se a quitado del carrito con id ${idCarrito}`,
+          })
+      : res.status(406).json({ Error: `Carrito o Producto inexistente` });
+});
 
 module.exports = router  
